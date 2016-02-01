@@ -3,3 +3,5 @@
   >>Ejem
     >>> clave = Kernel.modularHash(NumElementos, Dato);
     >>> clave = Kernel.cuadradoHash(NumElementos, Dato);
+
+    >>Es mas practico. Yo lo veo bien : Lo dejo implementado de una vez.

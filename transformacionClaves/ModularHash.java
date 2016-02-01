@@ -1,4 +1,4 @@
-package transform;
+package transformacionClaves;
 
 public class ModularHash{
     
@@ -16,7 +16,7 @@ public class ModularHash{
         this.K = K;
     }
     
-    public long transformElement(Integer element){
+    public Integer transformElement(Integer element){
         return (element % K) + 1;
     }
     

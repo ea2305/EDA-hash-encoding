@@ -1,5 +1,5 @@
 import menu.*;//Importamos la funcionalidad del menu
-import transform.*;
+import transformacionClaves.*;
 
 public class Main{
     
@@ -11,9 +11,10 @@ public class Main{
         myMenu.printTitle();
         myMenu.printOptions();
         
-        ModularHash modularHash = new ModularHash(100);
         
-        System.out.println(modularHash.transformElement(7259));
+        Kernel kernel = new Kernel();
+        
+        System.out.println("resultado : " + kernel.modularHash(7259,100));
         
     }
     
