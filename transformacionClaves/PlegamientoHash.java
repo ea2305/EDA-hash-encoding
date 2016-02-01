@@ -1,6 +1,6 @@
 /**
 *@author Flyzx
-*@version 0.1
+*@version 0.2
 */
 package transformacionClaves;
 /**
@@ -22,7 +22,7 @@ public class PlegamientoHash{
   */
   public int transformElement(Integer dato){
     return(
-      digitosMenosSignificativos(dato*dato) + 1
+      digitosMenosSignificativos(dato) + 1
     );
   }
   /**
