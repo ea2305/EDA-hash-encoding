@@ -1,34 +1,34 @@
 /**
 *@author Flyzx
-*@version 0.1
+*@version 0.2
 */
 package transformacionClaves;
 /**
-*Clase con la estructura de un dato para Hash
+*Clase con la estructura de un Integer para Hash
 */
-public class Dato<T extends Comparable<T>>{
+public class Dato{
   // contiene la clave
-  private Integer clave;
+  private int clave;
   //contiene el dato
-  private T dato;
+  private Integer dato;
   /**
   *constructor
-  *@param Integer: la clave, T: el dato
+  *@param int: la clave, Integer: el dato
   */
-  public Dato(Integer clave, T dato){
+  public Dato(int clave, Integer dato){
     this.clave = clave;
     this.dato = dato;
   }
   /**
-  *@return T: el dato
+  *@return int: la clave
   */
-  public T getDato(){
-    return this.dato;
+  public int getClave(){
+    return this.clave;
   }
   /**
-  *@return Integer: la clave
+  *@return Integer: el dato
   */
-  public Integer getClave(){
-    return this.clave;
+  public Integer getDato(){
+    return this.dato;
   }
 }
