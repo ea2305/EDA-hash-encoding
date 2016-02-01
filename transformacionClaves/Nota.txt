@@ -1,0 +1,5 @@
+[Flyzx]
+  >>Considero que seria mas optimo un Kernel Estatico
+  >>Ejem
+    >>> clave = Kernel.modularHash(NumElementos, Dato);
+    >>> clave = Kernel.cuadradoHash(NumElementos, Dato);
