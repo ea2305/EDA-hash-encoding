@@ -1,5 +1,6 @@
 /**
  * basic menu with title, and sub elements to list in output
+ *@author Elihu Alejandro Cruz Albores
  *@verison 1.1
  */
 
@@ -87,5 +88,11 @@ public class Menu implements StructMenu{
     //print end message
     public void exitMessage(){
         System.out.println("\n\t>> [ " + this.endMessage + " ]");
+    }
+    
+    //Print everything 
+    public void printAll(){
+        printTitle();
+        printOptions();
     }
 }

@@ -1,20 +1,21 @@
+/**
+ *Lanzador de menu y visata 
+ *@author Elihu Alejandro Cruz Albores
+ *@author Luis Angel Farelo Toledo
+ *@author Carlos Maximiliano Ortiz Escobar
+ *@author Luis Alcocer
+ *@author Julio de Buen Hernandez
+ *@version 1.2
+ */
+
 import menu.*;//Importamos la funcionalidad del menu
-import transformacionClaves.*;
 
 public class Main{
 
     public static void main(String []argv){
-        //Instancia de menu principal
-        String [] elements = {"wea","cosa","otra cosa", "etc"};
-        Menu myMenu = new Menu("EL MENU", elements);
-
-        myMenu.printTitle();
-        myMenu.printOptions();
-
-
-        Kernel kernel = new Kernel();
-        System.out.println(kernel.testHash(7259, 100));
-        System.out.println(kernel.testHash(9359, 100));
+        
+        Vista myView = new Vista();//Revisar paquete -> menu -> Vista.java
+        myView.start();//Lanzamos vista
+         
     }
-
 }

@@ -59,5 +59,26 @@ public class Kernel{
       tab + dato + " : " + this.truncamientoHash(dato, N) + salto
     );
   }
+  
+  /**
+   *@param value : Integer, hace referencia al valor a transformar
+   *@param N : int, numero de elementos en el conjunto de value
+   *@param option : int, seleccion de tipo de transformacion
+   *@return Integer : con valor de transformacion;
+   */
+  public Integer transformSelection(Integer value,int N,int option){
+      switch(option){
+          case 1:
+            return modularHash(value,N);
+          case 2:
+            return cuadradoHash(value,N);
+          case 3:
+            return truncamientoHash(value,N);
+          case 4:
+            return plegamientoHash(value,N);
+          default:
+            return -1;  
+      }
+  }
 
 }

@@ -1,6 +1,6 @@
 //Nodo Generico
 //Implementacion y retornos de datos correctos
-package estructuras;
+package struct;
 
 public class Node <T>{
 
@@ -8,11 +8,13 @@ public class Node <T>{
     //o a NULL si es el ultimo
     Node<T> next;
     T data;
+    int ID;
 
     // Node constructor
     public Node(T dataValue) {
         this.next = null;
         this.data = dataValue;
+        this.ID = 0;
     }
 
     // Constructor que incluye el siguiente nodo
@@ -20,7 +22,15 @@ public class Node <T>{
 
         this.next = nextValue;
         this.data = dataValue;
-
+        this.ID = 0;
+    }
+    
+    public void setID(int ID){
+        this.ID = ID;
+    }
+    
+    public int getID(){
+        return this.ID;
     }
 
     public T getData() {
