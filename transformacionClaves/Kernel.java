@@ -20,6 +20,7 @@ public class Kernel{
         
        ModularHash modHash = new ModularHash(N);       
        return  modHash.transformElement(element);
+       
         
     }
   
