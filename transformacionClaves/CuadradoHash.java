@@ -1,6 +1,6 @@
 /**
 *@author Flyzx
-*@version 0.1
+*@version 0.2
 */
 package transformacionClaves;
 /**
@@ -22,23 +22,24 @@ public class CuadradoHash{
   */
   public int transformElement(Integer dato){
     return(
-      datosCentrales(dato*dato) + 1
+      digitosCentrales(dato*dato) + 1
     );
   }
   /**
   *@param Integer: el dato
   *@return int: digitos centrales del dato
   */
-  private int datosCentrales(Integer dato){
-    int digitosCentrales = dato;
+  private int digitosCentrales(Integer dato){
+    int numero = dato;
     String box = dato.toString();
     int numDigitos = box.length();
-    while(digitosCentrales > N){
+    while(numero > N){
       if(numDigitos % 2 == 0) box = box.substring(1);
       else box = box.substring(0,numDigitos-1);
-      digitosCentrales = Integer.parseInt(box);
+      numero = Integer.parseInt(box);
+      box = Integer.toString(numero);
       numDigitos = box.length();
     }
-    return digitosCentrales;
+    return numero;
   }
 }
