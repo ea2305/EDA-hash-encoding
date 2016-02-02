@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Vista{
     
     int metodoHash;
+    Integer testArray [] = {25,43,56,35,54,13,80,104};
     
     //Constructor por defecto
     public Vista(){
@@ -141,7 +142,6 @@ public class Vista{
     
     public void test_pruebaEncadenamiento(){
         //Elementos de prueba
-        Integer testArray [] = {25,43,56,35,54,13,80,104};
         Kernel kernel = new Kernel();
         
         Menu myMenu = new Menu("PRUEBA ENCADENAMIENTO", null);
@@ -158,30 +158,40 @@ public class Vista{
         
         A.printList();//Visuallizar arreglo
         
-        int aux =  A.search(115,12);
-        if(aux > 0){
-            System.out.println("Elemento encontrado en la posicion : " + aux);
-        }else{
-            System.out.println("dato no encontrado");
-        }
+        System.out.println();
+        
+        printSearchResult(A.search(104,kernel.transformSelection(104,testArray.length,this.metodoHash)));//test search
+        printSearchResult(A.search(7,kernel.transformSelection(7,testArray.length,this.metodoHash)));//test search
+
     }
     
     public void test_pruebaCuadratica(){
          //Elementos de prueba
-        Integer testArray [] = {25,43,56,35,54,13,80,104};
+        
         Kernel kernel = new Kernel();
         
         Menu myMenu = new Menu("PRUEBA ENCADENAMIENTO", null);
         myMenu.printTitle();
-        CuadraticMethod myMethod = new CuadraticMethod();
+        CuadraticMethod A = new CuadraticMethod();
         
-        myMethod.start(testArray.length);
+        A.start(testArray.length);
        
         for(Integer e : testArray){
-            myMethod.insert(e,kernel.transformSelection(e,testArray.length,this.metodoHash));
+            A.insert(e,kernel.transformSelection(e,testArray.length,this.metodoHash));
         }   
         
-        myMethod.printArray();
+        A.printArray();
+        
+        printSearchResult(A.search(104,kernel.transformSelection(104,testArray.length,this.metodoHash)));//test search
+        printSearchResult(A.search(7,kernel.transformSelection(7,testArray.length,this.metodoHash)));//test search
+    }
+    
+    public void printSearchResult(int aux){
+        if(aux >= 0){
+            System.out.println("\tElemento encontrado en la posicion : " + aux);
+        }else{
+            System.out.println("\tDato no encontrado :(");
+        }
     }
     
 

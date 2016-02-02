@@ -55,4 +55,38 @@ public class CuadraticMethod{
         System.out.println(" Elemento" + data  + " No pudo ser insertado, intente con otro metodo ");
         return -1;
     }
+    
+    public Integer search(Integer data,int posicion){
+        
+        int count = 0;
+        if(posicion < 0 || posicion >= this.myArray.length)
+            return -1;
+        
+        if(myArray[posicion] == data){
+            
+            return posicion;
+            
+        }else{  
+            int i = 1;
+            int newPosition = posicion + (int)Math.pow(i,2);
+            
+            while(count < this.myArray.length){
+                
+                if(myArray[newPosition] == data){
+                   
+                    return newPosition;
+                }       
+                
+                i++;
+                count++;
+                newPosition = posicion + (int)Math.pow(i,2);
+                if(newPosition >= myArray.length){
+                    i = 0;
+                    posicion = 0;
+                    newPosition = posicion + (int)Math.pow(i,2);
+                }
+            }
+        }
+        return -1;
+    }
 }
