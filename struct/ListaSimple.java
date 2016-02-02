@@ -43,7 +43,7 @@ public class ListaSimple<T extends Comparable<T>> implements Comparable<ListaSim
         listCount++;// incrementamos el contador de nodos
     }
 
-    // Regresa el nodo en la posición indicada por index
+    // Regresa el nodo en la posicion indicada por index
     public Node<T> get(int index){
         if (index <= 0)
             return null;
@@ -58,7 +58,7 @@ public class ListaSimple<T extends Comparable<T>> implements Comparable<ListaSim
         return Current;
     }
 
-    // remueve el elemento en la posición indicada
+    // remueve el elemento en la posicion indicada
     public boolean remove(int index){
         //
         if (index < 1 || index > size())
@@ -77,7 +77,7 @@ public class ListaSimple<T extends Comparable<T>> implements Comparable<ListaSim
         return true;
     }
 
-    // agrega el elemento en la posición indicada
+    // agrega el elemento en la posicion indicada
     public boolean addPos(int index, T data){
         //
         if (index < 1 )
@@ -102,7 +102,7 @@ public class ListaSimple<T extends Comparable<T>> implements Comparable<ListaSim
         return true;
     }
 
-    // agrega el elemento en la posición indicada
+    // agrega el elemento en la posicion indicada
     //Ordenacion de menor a mayor para clases genericas con
     //Implentacion de Comparable
     public boolean addOrdenado(T data){

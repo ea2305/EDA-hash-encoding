@@ -4,6 +4,7 @@ import menu.*;//Importamos la funcionalidad del menu
 import transformacionClaves.*;
 import colisiones.*; 
 import java.util.Scanner;
+import search.*;
 
 public class Vista{
     
@@ -121,7 +122,31 @@ public class Vista{
                 
     }
     
-    public void test_pruebaLineal(){}
+    public void test_pruebaLineal(){
+        Integer testArray [] = {25,43,56,35,54,13,80,104};
+        Kernel kernel=new Kernel();
+        Menu myMenu =new Menu("Prueba Reasignacion -- Prueba Lineal",null);
+        RPruebaLineal A = new RPruebaLineal(testArray.length);
+        for(int i=0;i<testArray.length ;i++) {
+            A.insert(kernel.transformSelection(testArray[i],10,this.metodoHash)-1,testArray[i]);    
+        }
+
+            Integer newtestArray[]=A.getData();
+
+        for (Integer e : testArray) {
+            System.out.println(e);
+        }
+
+        System.out.println("Datos hash");
+        for (int i=0;i<newtestArray.length ;i++ ) {
+            System.out.println(newtestArray[i]);
+        }
+
+        int a=A.search(13,(kernel.transformSelection(13,10,this.metodoHash))-1);
+        System.out.println("Entro aqui");
+
+        
+    }
     
     public void test_pruebaArreglosAnidados(){}
     
@@ -136,7 +161,7 @@ public class Vista{
         
         Encadenamiento A = new Encadenamiento();
         
-        A.startList(testArray.length);//Generamos Tamaño de lista
+        A.startList(testArray.length);//Generamos Tamano de lista
         
         for(Integer e : testArray){
             A.insert(e,kernel.transformSelection(e,10,this.metodoHash));
