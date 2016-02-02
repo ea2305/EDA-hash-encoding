@@ -20,6 +20,15 @@ public class Encadenamiento{
      */    
     public void insert(Integer data,int posicion){
         
+        if(posicion > List.size()){//Redimencion
+            ListaSimple<Integer> aux;
+            for (int i = List.size(); i < posicion ; i++){
+                aux = new ListaSimple<Integer>();
+                List.add(aux);
+            }
+        }
+
+        
         ListaSimple<Integer> Current = new ListaSimple<>();
         
         //Buscamos el elemento en la lista.

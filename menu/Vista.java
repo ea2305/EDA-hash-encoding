@@ -165,16 +165,16 @@ public class Vista{
 
     }
     
-    public void test_pruebaCuadratica(){
+    public void test_pruebaCuadratica(){//Tamños fijos, 
          //Elementos de prueba
         
         Kernel kernel = new Kernel();
         
-        Menu myMenu = new Menu("PRUEBA ENCADENAMIENTO", null);
+        Menu myMenu = new Menu("PRUEBA CUADRATICA", null);
         myMenu.printTitle();
         CuadraticMethod A = new CuadraticMethod();
         
-        A.start(testArray.length);
+        A.start(testArray.length * 2);
        
         for(Integer e : testArray){
             A.insert(e,kernel.transformSelection(e,testArray.length,this.metodoHash));

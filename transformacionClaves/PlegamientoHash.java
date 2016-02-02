@@ -33,11 +33,11 @@ public class PlegamientoHash{
     int numero = dato;
     String box = dato.toString();
     int numDigitos = box.length();
-    while(numero > N){
+    while(numero > N && numDigitos > 1){
       String s1 = box.substring(0, numDigitos/2);
       String s2 = box.substring(numDigitos/2);
-      int i1 = Integer.parseInt(s1);
-      int i2 = Integer.parseInt(s2);
+      int i1 = Integer.parseInt(s1.trim());
+      int i2 = Integer.parseInt(s2.trim());
       numero = i1+i2;
       box = Integer.toString(numero);
       numDigitos = box.length();
