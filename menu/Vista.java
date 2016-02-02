@@ -25,6 +25,10 @@ public class Vista{
          menuPrincipal();//Menu para pruebas de metodos.
     }
     
+    
+    /**
+     *Llamada al menu principal
+     */
     private void menuPrincipal(){
         Scanner read = new Scanner(System.in);
         int option = 0;
@@ -50,6 +54,10 @@ public class Vista{
         }        
     }
     
+    
+    /**
+     *Selecto de flujo 
+     */
     private int pruebaColision(int option){
         switch(option){
             case 1:
