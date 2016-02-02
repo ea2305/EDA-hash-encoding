@@ -1,3 +1,5 @@
+package colisiones;
+
 public class CuadraticMethod{
     
     Integer myArray[];
@@ -6,18 +8,48 @@ public class CuadraticMethod{
         myArray = new Integer[2];
     }
     
-    public CuadraticMethod(int size){
-        myArray = new Integer[size];
+    public void start(int size){
+        Integer [] temp = new Integer[size];
+        this.myArray = temp; 
     }
     
-    public void insert(Integer data,int posicion){
+    public void printArray(){
+        int index = 0;
+        for(Integer e : myArray)
+            System.out.println("[" + (index++) +"] : " + e);
+    }
+    
+    public Integer insert(Integer data,int posicion){
+        int count = 0;
+        if(posicion < 0 || posicion > this.myArray.length)
+            return -1;
         
         if(myArray[posicion] == null){
             myArray[posicion] = data;
         }else{
-            
+            System.out.println("otro intento");           
+            int i = 1;
+            int newPosition = posicion + (int)Math.pow(i,2);
+            while(count < this.myArray.length/2){
+                
+                System.out.println(newPosition + " generate");
+                    
+                
+                if(myArray[newPosition] == null){
+                    System.out.println(">>acomodado : " + data + " posicion :" + newPosition);
+                    myArray[posicion] = data;
+                }       
+                i++;
+                count++;
+                newPosition = posicion + (int)Math.pow(i,2);
+                if(newPosition >= myArray.length){
+                    i = 0;
+                    posicion = 0;
+                    newPosition = posicion + (int)Math.pow(i,2);
+                }
+            }
         }
         
+        return posicion;
     }
-    
 }

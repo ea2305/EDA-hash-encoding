@@ -34,7 +34,7 @@ public class Vista{
         int option = 0;
         
         //Instancia de menu principal
-        String [] elements = {"Prueba Lineal","Arreglos Anidados","Doble Direccion Hash","Encadenamiento","Cambiar metodo hash","Salir =>"};
+        String [] elements = {"Prueba Lineal","Arreglos Anidados","Doble Direccion Hash","Encadenamiento","Prueba cuadratica","Cambiar metodo hash","Salir =>"};
         Menu myMenu = new Menu("\tMETODO DE SOLUCION DE COLISIONES A COMPROBAR", elements);
        
         while(option != -1){
@@ -77,6 +77,10 @@ public class Vista{
                 test_pruebaEncadenamiento();
                 return option;
             case 5:
+                System.out.println("test 5");
+                test_pruebaCuadratica();
+                return option;
+            case 6:
                 seleccionMetodo();
                 return option;                
                 
@@ -147,7 +151,7 @@ public class Vista{
         A.startList(testArray.length);//Generamos Tamaño de lista
         
         for(Integer e : testArray){
-            A.insert(e,kernel.transformSelection(e,10,this.metodoHash));
+            A.insert(e,kernel.transformSelection(e,testArray.length,this.metodoHash));
         }   
 
         A.insert(787,3);
@@ -160,5 +164,25 @@ public class Vista{
         }else{
             System.out.println("dato no encontrado");
         }
-    }    
+    }
+    
+    public void test_pruebaCuadratica(){
+         //Elementos de prueba
+        Integer testArray [] = {25,43,56,35,54,13,80,104};
+        Kernel kernel = new Kernel();
+        
+        Menu myMenu = new Menu("PRUEBA ENCADENAMIENTO", null);
+        
+        CuadraticMethod myMethod = new CuadraticMethod();
+        
+        myMethod.start(testArray.length);
+       
+        for(Integer e : testArray){
+            myMethod.insert(e,kernel.transformSelection(e,testArray.length,this.metodoHash));
+        }   
+        
+        myMethod.printArray();
+    }
+    
+
 }
