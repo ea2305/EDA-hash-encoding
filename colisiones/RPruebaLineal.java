@@ -59,7 +59,7 @@ public class RPruebaLineal{
 
 	public Integer search(Integer dato,Integer k){
 		int dx=0;
-		if (this.datos[dato]==k) {
+		if (this.datos[dato].compareTo(k)==0) {
 			System.out.println("El elemento esta en la posicion : " + dato);
 			return dato;
 		}

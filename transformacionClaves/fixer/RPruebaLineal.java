@@ -19,7 +19,7 @@ public class RPruebaLineal{
 	*@param Integer: Arreglo que contiene los datos 
 	*/
 	public RPruebaLineal(Integer datos[]){
-	this.datos = datos;
+	   this.datos = datos;
 	}
 
 	/**

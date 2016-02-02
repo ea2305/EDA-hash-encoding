@@ -9,6 +9,7 @@ import search.*;
 public class Vista{
     
     int metodoHash;
+    Integer testArray [] = {25,43,56,35,54,13,80,104};
     
     //Constructor por defecto
     public Vista(){
@@ -26,12 +27,16 @@ public class Vista{
          menuPrincipal();//Menu para pruebas de metodos.
     }
     
+    
+    /**
+     *Llamada al menu principal
+     */
     private void menuPrincipal(){
         Scanner read = new Scanner(System.in);
         int option = 0;
         
         //Instancia de menu principal
-        String [] elements = {"Prueba Lineal","Arreglos Anidados","Doble Direccion Hash","Encadenamiento","Cambiar metodo hash","Salir =>"};
+        String [] elements = {"Prueba Lineal","Arreglos Anidados","Doble Direccion Hash","Encadenamiento","Prueba cuadratica","Cambiar metodo hash","Salir =>"};
         Menu myMenu = new Menu("\tMETODO DE SOLUCION DE COLISIONES A COMPROBAR", elements);
        
         while(option != -1){
@@ -44,13 +49,17 @@ public class Vista{
                 option = read.nextInt();
                 option = pruebaColision(option);
                 
-            }catch(Exception e){
+            }catch(java.util.InputMismatchException e){
                 read = new Scanner(System.in);
                 System.out.println("Error de lectura =X ingrese numeros");
             }   
         }        
     }
     
+    
+    /**
+     *Selecto de flujo 
+     */
     private int pruebaColision(int option){
         switch(option){
             case 1:
@@ -70,6 +79,10 @@ public class Vista{
                 test_pruebaEncadenamiento();
                 return option;
             case 5:
+                System.out.println("test 5");
+                test_pruebaCuadratica();
+                return option;
+            case 6:
                 seleccionMetodo();
                 return option;                
                 
@@ -97,7 +110,7 @@ public class Vista{
                 option = read.nextInt();
                 option = metodoSelect(option);
                 
-            }catch(Exception e){
+            }catch(java.util.InputMismatchException e){
                 read = new Scanner(System.in);
                 option = 0;
                 System.out.println("Error de lectura =X ingrese numeros");
@@ -154,28 +167,57 @@ public class Vista{
     
     public void test_pruebaEncadenamiento(){
         //Elementos de prueba
-        Integer testArray [] = {25,43,56,35,54,13,80,104};
         Kernel kernel = new Kernel();
         
         Menu myMenu = new Menu("PRUEBA ENCADENAMIENTO", null);
-        
+        myMenu.printTitle();
         Encadenamiento A = new Encadenamiento();
         
         A.startList(testArray.length);//Generamos Tamano de lista
         
         for(Integer e : testArray){
-            A.insert(e,kernel.transformSelection(e,10,this.metodoHash));
+            A.insert(e,kernel.transformSelection(e,testArray.length,this.metodoHash));
         }   
 
         A.insert(787,3);
         
         A.printList();//Visuallizar arreglo
         
-        int aux =  A.search(115,12);
-        if(aux > 0){
-            System.out.println("Elemento encontrado en la posicion : " + aux);
+        System.out.println();
+        
+        printSearchResult(A.search(104,kernel.transformSelection(104,testArray.length,this.metodoHash)));//test search
+        printSearchResult(A.search(7,kernel.transformSelection(7,testArray.length,this.metodoHash)));//test search
+
+    }
+    
+    public void test_pruebaCuadratica(){
+         //Elementos de prueba
+        
+        Kernel kernel = new Kernel();
+        
+        Menu myMenu = new Menu("PRUEBA ENCADENAMIENTO", null);
+        myMenu.printTitle();
+        CuadraticMethod A = new CuadraticMethod();
+        
+        A.start(testArray.length);
+       
+        for(Integer e : testArray){
+            A.insert(e,kernel.transformSelection(e,testArray.length,this.metodoHash));
+        }   
+        
+        A.printArray();
+        
+        printSearchResult(A.search(104,kernel.transformSelection(104,testArray.length,this.metodoHash)));//test search
+        printSearchResult(A.search(7,kernel.transformSelection(7,testArray.length,this.metodoHash)));//test search
+    }
+    
+    public void printSearchResult(int aux){
+        if(aux >= 0){
+            System.out.println("\tElemento encontrado en la posicion : " + aux);
         }else{
-            System.out.println("dato no encontrado");
+            System.out.println("\tDato no encontrado :(");
         }
-    }    
+    }
+    
+
 }

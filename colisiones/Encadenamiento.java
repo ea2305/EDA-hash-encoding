@@ -31,6 +31,9 @@ public class Encadenamiento{
     
     public int search(Integer data, int posicion){
         
+        if(posicion > List.size())
+            return -1;
+        
         ListaSimple<Integer> current = new ListaSimple<>();
         
         //Busqueda directa con metodo get()
