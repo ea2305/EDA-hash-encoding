@@ -47,7 +47,7 @@ public class Vista{
                 option = read.nextInt();
                 option = pruebaColision(option);
                 
-            }catch(Exception e){
+            }catch(java.util.InputMismatchException e){
                 read = new Scanner(System.in);
                 System.out.println("Error de lectura =X ingrese numeros");
             }   
@@ -108,7 +108,7 @@ public class Vista{
                 option = read.nextInt();
                 option = metodoSelect(option);
                 
-            }catch(Exception e){
+            }catch(java.util.InputMismatchException e){
                 read = new Scanner(System.in);
                 option = 0;
                 System.out.println("Error de lectura =X ingrese numeros");
@@ -145,7 +145,7 @@ public class Vista{
         Kernel kernel = new Kernel();
         
         Menu myMenu = new Menu("PRUEBA ENCADENAMIENTO", null);
-        
+        myMenu.printTitle();
         Encadenamiento A = new Encadenamiento();
         
         A.startList(testArray.length);//Generamos Tamaño de lista
@@ -172,7 +172,7 @@ public class Vista{
         Kernel kernel = new Kernel();
         
         Menu myMenu = new Menu("PRUEBA ENCADENAMIENTO", null);
-        
+        myMenu.printTitle();
         CuadraticMethod myMethod = new CuadraticMethod();
         
         myMethod.start(testArray.length);

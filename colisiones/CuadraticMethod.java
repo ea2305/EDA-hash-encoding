@@ -20,25 +20,27 @@ public class CuadraticMethod{
     }
     
     public Integer insert(Integer data,int posicion){
+        
         int count = 0;
-        if(posicion < 0 || posicion > this.myArray.length)
+        if(posicion < 0 || posicion >= this.myArray.length)
             return -1;
         
         if(myArray[posicion] == null){
+            
             myArray[posicion] = data;
-        }else{
-            System.out.println("otro intento");           
+            return posicion;
+            
+        }else{  
             int i = 1;
             int newPosition = posicion + (int)Math.pow(i,2);
-            while(count < this.myArray.length/2){
-                
-                System.out.println(newPosition + " generate");
-                    
+            
+            while(count < this.myArray.length){
                 
                 if(myArray[newPosition] == null){
-                    System.out.println(">>acomodado : " + data + " posicion :" + newPosition);
-                    myArray[posicion] = data;
+                    myArray[newPosition] = data;
+                    return newPosition;
                 }       
+                
                 i++;
                 count++;
                 newPosition = posicion + (int)Math.pow(i,2);
@@ -50,6 +52,7 @@ public class CuadraticMethod{
             }
         }
         
-        return posicion;
+        System.out.println(" Elemento" + data  + " No pudo ser insertado, intente con otro metodo ");
+        return -1;
     }
 }
