@@ -33,9 +33,11 @@ public class CuadradoHash{
     int numero = dato;
     String box = dato.toString();
     int numDigitos = box.length();
-    while(numero > N){
+    
+    while(numero > N  && numDigitos > 1){
       if(numDigitos % 2 == 0) box = box.substring(1);
       else box = box.substring(0,numDigitos-1);
+      System.out.println(box);
       numero = Integer.parseInt(box);
       box = Integer.toString(numero);
       numDigitos = box.length();

@@ -33,7 +33,7 @@ public class TruncamientoHash{
     int numero = dato;
     String box = dato.toString();
     int numDigitos = box.length();
-    while(numero > N){
+    while(numero > N && numDigitos > 1){
       String aux = "0";
       for (int i=0; i<numDigitos ; i+=2) {
         aux += box.charAt(i);

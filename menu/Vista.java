@@ -155,7 +155,7 @@ public class Vista{
             System.out.println(newtestArray[i]);
         }
 
-        int a=A.search(13,(kernel.transformSelection(13,10,this.metodoHash))-1);
+        int a=A.search((kernel.transformSelection(10,10,this.metodoHash))-1,13);
         System.out.println("Entro aqui");
 
         
@@ -190,16 +190,16 @@ public class Vista{
 
     }
     
-    public void test_pruebaCuadratica(){
+    public void test_pruebaCuadratica(){//Tamanos fijos, 
          //Elementos de prueba
         
         Kernel kernel = new Kernel();
         
-        Menu myMenu = new Menu("PRUEBA ENCADENAMIENTO", null);
+        Menu myMenu = new Menu("PRUEBA CUADRATICA", null);
         myMenu.printTitle();
         CuadraticMethod A = new CuadraticMethod();
         
-        A.start(testArray.length);
+        A.start(testArray.length * 2);
        
         for(Integer e : testArray){
             A.insert(e,kernel.transformSelection(e,testArray.length,this.metodoHash));

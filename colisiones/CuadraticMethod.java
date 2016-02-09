@@ -22,8 +22,10 @@ public class CuadraticMethod{
     public Integer insert(Integer data,int posicion){
         
         int count = 0;
-        if(posicion < 0 || posicion >= this.myArray.length)
+        if(posicion < 0 || posicion >= this.myArray.length){
+            System.out.println("El elemento excede el tamano del arreglo");
             return -1;
+        }
         
         if(myArray[posicion] == null){
             
