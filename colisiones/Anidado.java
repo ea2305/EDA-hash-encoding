@@ -1,11 +1,13 @@
+package colisiones;
+
 public class Anidado{
 	Integer[][] arreglo; 
 
-	Anidado(int tamano){
+	public Anidado(int tamano){
 		arreglo = new Integer[tamano][tamano];
 	}
 
-	Anidado(){
+	public Anidado(){
 		arreglo = new Integer[50][50];
 
 	}
@@ -37,7 +39,7 @@ public class Anidado{
 		System.out.println("Objeto no encontrado");
 	}
 
-	private void printArray(){
+	public void printArray(){
 		for(int i=0; i<arreglo.length; i++){
 			for (int x=0; x < arreglo.length; x++){
 				if(arreglo[i][x] != null)

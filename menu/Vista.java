@@ -136,7 +136,15 @@ public class Vista{
     
     public void test_pruebaLineal(){}
     
-    public void test_pruebaArreglosAnidados(){}
+    public void test_pruebaArreglosAnidados(){
+        Anidado a = new Anidado(10);
+        for(int i= 0; i<testArray.length; i++){
+            a.insertar(testArray[i]);
+        }
+
+        a.printArray();
+
+    }
     
     public void test_pruebaDobleDireccionHash(){}
     
