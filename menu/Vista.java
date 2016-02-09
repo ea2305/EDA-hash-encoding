@@ -167,14 +167,16 @@ public class Vista{
     public void test_pruebaArreglosAnidados(){
         Kernel kernel = new Kernel();
 
-        Anidado a = new Anidado(testArray.length);
+        Anidado a = new Anidado(testArray.length+5);
         for(Integer i : testArray){
+            System.out.println("posicion a insertar"+kernel.transformSelection(i, testArray.length, this.metodoHash));
             a.insertar(i, kernel.transformSelection(i, testArray.length, this.metodoHash));
         }
 
         a.printArray();
 
         System.out.println("BUSCAR ELEMENTO 25 EN EL ARREGLO DE DATOS");
+        System.out.println("posicion a buscar "+ kernel.transformSelection(25,testArray.length,this.metodoHash));
         printSearchResult(a.buscar(25, kernel.transformSelection(25,testArray.length,this.metodoHash)));
 
         System.out.println("BUSCAR ELEMENTO 7 EN EL ARREGLO DE DATOS");
