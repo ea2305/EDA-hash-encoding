@@ -29,9 +29,9 @@ public class Anidado{
 	//	printArray();
 	}
 
-	public int buscar(Integer object, int pos){
-		if(pos > arreglo.length)
-			return -pos;
+	public int buscar(Integer object, int pos){     
+        if(pos > arreglo.length)
+            return -1;
 		for(int i=0; i< arreglo.length; i++){
 			if(arreglo[pos][i] == object){
 				//System.out.println("Objeto encontrado");
