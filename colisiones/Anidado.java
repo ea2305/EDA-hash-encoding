@@ -12,16 +12,16 @@ public class Anidado{
 
 	}
 
-	public void insertar(Integer object){
+	public void insertar(Integer object, int pos){
 		int i = 0;
-		int h = (object % 10) +1;
+	//	int h = (object % 10) +1;
 	//	System.out.println(arreglo.length);
-		if(arreglo[h][i] == null){
-			arreglo[h][i] = object;
+		if(arreglo[pos][i] == null){
+			arreglo[pos][i] = object;
 		}else{
 			for(i=0; i< arreglo.length; i++){
-				if(arreglo[h][i] == null){
-					arreglo[h][i] = object;
+				if(arreglo[pos][i] == null){
+					arreglo[pos][i] = object;
 					i = arreglo.length;
 				}
 			}
@@ -29,14 +29,15 @@ public class Anidado{
 	//	printArray();
 	}
 
-	public void buscar(Integer object, int pos){
+	public int buscar(Integer object, int pos){
 		for(int i=0; i< arreglo.length; i++){
 			if(arreglo[pos][i] == object){
-				System.out.println("Objeto encontrado");
-				return;
+				//System.out.println("Objeto encontrado");
+				return pos;
 			}
 		}
-		System.out.println("Objeto no encontrado");
+		return -pos;
+	//	System.out.println("Objeto no encontrado");
 	}
 
 	public void printArray(){
