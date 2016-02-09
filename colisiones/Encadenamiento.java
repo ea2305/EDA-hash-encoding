@@ -1,8 +1,6 @@
 package colisiones;
 import colisiones.*;
 import struct.*;
-
-
 public class Encadenamiento{
     
     ListaSimple<ListaSimple<Integer>> List;

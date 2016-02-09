@@ -23,7 +23,7 @@ public class CuadraticMethod{
         
         int count = 0;
         if(posicion < 0 || posicion >= this.myArray.length){
-            System.out.println("El elemento excede el tamaño del arreglo");
+            System.out.println("El elemento excede el tamano del arreglo");
             return -1;
         }
         
