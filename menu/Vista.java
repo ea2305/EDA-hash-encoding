@@ -155,11 +155,9 @@ public class Vista{
 
         System.out.println("Datos hash");
         for (int i=0;i<newtestArray.length ;i++ ) {
-            System.out.println(newtestArray[i]);
+            System.out.println(i +"--["+newtestArray[i]+"]");
         }
 
-
-        System.out.println("Entro aqui");
         int a=A.search((kernel.transformSelection(13,10,this.metodoHash))-1,13);
         
 
@@ -194,7 +192,7 @@ public class Vista{
         TwoWay A = new TwoWay(10,this.metodoHash);
 
         for(int i=0;i<testArray.length ;i++) {
-            System.out.println(i);
+            System.out.println("Insertando el numero " + testArray[i]);
             A.insert(testArray[i]);    
         }
 
@@ -214,6 +212,10 @@ public class Vista{
         //
         Kernel kernel=new Kernel();
         int a=A.search((kernel.transformSelection(13,10,this.metodoHash))-1,13);
+
+        System.out.println("\nBuscando el numero 40\n");
+
+        int b=A.search((kernel.transformSelection(40,10,this.metodoHash))-1,40);
         
     }
     

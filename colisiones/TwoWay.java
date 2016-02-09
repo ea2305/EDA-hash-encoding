@@ -36,21 +36,23 @@ public class TwoWay{
 
 		Kernel kernel=new Kernel();
 
-		Integer dato=(kernel.transformSelection(info,n,this.metodoHash))-1;
-		System.out.println(dato);
+		Integer dato=(kernel.transformSelection(info,n,this.metodoHash));
 		if (this.datos[dato] == null) {
 			this.datos[dato]=info;
+			System.out.println("El dato se inserto en la pos : "+dato);
 		}
 		else
 		{
-			dx=(kernel.transformSelection(dato+1,n,this.metodoHash));
+			dx=dato;
 			while((datos[dx]!=null)){
-				dx=(kernel.transformSelection(dato+1,n,this.metodoHash));
+				dx=(kernel.transformSelection(dx+1,n,this.metodoHash));
+				
 				if (dx>=this.n){
 					dx=0;
 				}
 			}
 			this.datos[dx]=info;
+			System.out.println("El dato se inserto en la pos : "+dx);
 }
 	}
 
@@ -73,15 +75,15 @@ public class TwoWay{
 
 		Kernel kernel=new Kernel();
 
-		if (this.datos[dato] == null) {
+		if (this.datos[dato] == k) {
 			System.out.println("El elemento esta en la posicion : " + dato);
 			return dato;
 		}
 		else
 		{
-			dx=(kernel.transformSelection(dato+1,n,this.metodoHash));
+			dx=(kernel.transformSelection(dato,n,this.metodoHash));
 			while((dx<=n) && (datos[dx]!=k) && (datos[dx]!=null) && (dx!=dato)){
-				dx=(kernel.transformSelection(dato+1,n,this.metodoHash));
+				dx=(kernel.transformSelection(dx+1,n,this.metodoHash));
 				if (dx>=n) {
 					dx=0;
 				}
