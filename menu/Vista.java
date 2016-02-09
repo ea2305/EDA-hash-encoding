@@ -143,6 +143,7 @@ public class Vista{
     public void test_pruebaEncadenamiento(){
         //Elementos de prueba
         Kernel kernel = new Kernel();
+        int busqueda = 7;
         
         Menu myMenu = new Menu("PRUEBA ENCADENAMIENTO", null);
         myMenu.printTitle();
@@ -160,7 +161,9 @@ public class Vista{
         
         System.out.println();
         
+        System.out.println("Busqueda de dato  [104]");
         printSearchResult(A.search(104,kernel.transformSelection(104,testArray.length,this.metodoHash)));//test search
+        System.out.println("Busqueda de dato  [7]");
         printSearchResult(A.search(7,kernel.transformSelection(7,testArray.length,this.metodoHash)));//test search
 
     }
@@ -182,7 +185,9 @@ public class Vista{
         
         A.printArray();
         
+        System.out.println("Busqueda de dato  [104]");
         printSearchResult(A.search(104,kernel.transformSelection(104,testArray.length,this.metodoHash)));//test search
+        System.out.println("Busqueda de dato  [7]");
         printSearchResult(A.search(7,kernel.transformSelection(7,testArray.length,this.metodoHash)));//test search
     }
     
