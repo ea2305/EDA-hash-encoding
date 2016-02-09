@@ -30,6 +30,8 @@ public class Anidado{
 	}
 
 	public int buscar(Integer object, int pos){
+		if(pos > arreglo.length)
+			return -pos;
 		for(int i=0; i< arreglo.length; i++){
 			if(arreglo[pos][i] == object){
 				//System.out.println("Objeto encontrado");
