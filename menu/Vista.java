@@ -139,7 +139,7 @@ public class Vista{
     public void test_pruebaArreglosAnidados(){
         Kernel kernel = new Kernel();
 
-        Anidado a = new Anidado(10);
+        Anidado a = new Anidado(testArray.length);
         for(Integer i : testArray){
             a.insertar(i, kernel.transformSelection(i, testArray.length, this.metodoHash));
         }
