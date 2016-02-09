@@ -136,7 +136,23 @@ public class Vista{
     
     public void test_pruebaLineal(){}
     
-    public void test_pruebaArreglosAnidados(){}
+    public void test_pruebaArreglosAnidados(){
+        Kernel kernel = new Kernel();
+
+        Anidado a = new Anidado(10);
+        for(Integer i : testArray){
+            a.insertar(i, kernel.transformSelection(i, testArray.length, this.metodoHash));
+        }
+
+        a.printArray();
+
+        System.out.println("BUSCAR ELEMENTO 25 EN EL ARREGLO DE DATOS");
+        printSearchResult(a.buscar(25, kernel.transformSelection(25,testArray.length,this.metodoHash)));
+
+        System.out.println("BUSCAR ELEMENTO 7 EN EL ARREGLO DE DATOS");
+        printSearchResult(a.buscar(7, kernel.transformSelection(7,testArray.length,this.metodoHash)));
+
+    }
     
     public void test_pruebaDobleDireccionHash(){}
     

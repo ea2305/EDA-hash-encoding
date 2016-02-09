@@ -1,25 +1,27 @@
+package colisiones;
+
 public class Anidado{
 	Integer[][] arreglo; 
 
-	Anidado(int tamano){
+	public Anidado(int tamano){
 		arreglo = new Integer[tamano][tamano];
 	}
 
-	Anidado(){
+	public Anidado(){
 		arreglo = new Integer[50][50];
 
 	}
 
-	public void insertar(Integer object){
+	public void insertar(Integer object, int pos){
 		int i = 0;
-		int h = (object % 10) +1;
+	//	int h = (object % 10) +1;
 	//	System.out.println(arreglo.length);
-		if(arreglo[h][i] == null){
-			arreglo[h][i] = object;
+		if(arreglo[pos][i] == null){
+			arreglo[pos][i] = object;
 		}else{
 			for(i=0; i< arreglo.length; i++){
-				if(arreglo[h][i] == null){
-					arreglo[h][i] = object;
+				if(arreglo[pos][i] == null){
+					arreglo[pos][i] = object;
 					i = arreglo.length;
 				}
 			}
@@ -27,17 +29,18 @@ public class Anidado{
 	//	printArray();
 	}
 
-	public void buscar(Integer object, int pos){
+	public int buscar(Integer object, int pos){
 		for(int i=0; i< arreglo.length; i++){
 			if(arreglo[pos][i] == object){
-				System.out.println("Objeto encontrado");
-				return;
+				//System.out.println("Objeto encontrado");
+				return pos;
 			}
 		}
-		System.out.println("Objeto no encontrado");
+		return -pos;
+	//	System.out.println("Objeto no encontrado");
 	}
 
-	private void printArray(){
+	public void printArray(){
 		for(int i=0; i<arreglo.length; i++){
 			for (int x=0; x < arreglo.length; x++){
 				if(arreglo[i][x] != null)
