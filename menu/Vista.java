@@ -139,31 +139,67 @@ public class Vista{
         Integer testArray [] = {25,43,56,35,54,13,80,104};
         Kernel kernel=new Kernel();
         Menu myMenu =new Menu("Prueba Reasignacion -- Prueba Lineal",null);
-        RPruebaLineal A = new RPruebaLineal(testArray.length);
+        RPruebaLineal A = new RPruebaLineal(10);
+
         for(int i=0;i<testArray.length ;i++) {
+            System.out.println(kernel.transformSelection(testArray[i],10,this.metodoHash)-1);
             A.insert(kernel.transformSelection(testArray[i],10,this.metodoHash)-1,testArray[i]);    
         }
 
-            Integer newtestArray[]=A.getData();
+        Integer newtestArray[] =A.getData();
 
+        System.out.println("Original");
         for (Integer e : testArray) {
             System.out.println(e);
-        }
+        }   
 
         System.out.println("Datos hash");
         for (int i=0;i<newtestArray.length ;i++ ) {
             System.out.println(newtestArray[i]);
         }
 
-        int a=A.search((kernel.transformSelection(10,10,this.metodoHash))-1,13);
+
         System.out.println("Entro aqui");
+        int a=A.search((kernel.transformSelection(13,10,this.metodoHash))-1,13);
+        
 
         
     }
     
     public void test_pruebaArreglosAnidados(){}
     
-    public void test_pruebaDobleDireccionHash(){}
+    public void test_pruebaDobleDireccionHash(){
+
+
+
+        Integer testArray [] = {25,43,56,35,54,13,80,104};
+        Menu myMenu =new Menu("Prueba Doble Direccion Hash",null);
+
+        TwoWay A = new TwoWay(10,this.metodoHash);
+
+        for(int i=0;i<testArray.length ;i++) {
+            System.out.println(i);
+            A.insert(testArray[i]);    
+        }
+
+        Integer newtestArray[]=A.getData();
+        System.out.println("Original");
+        for (Integer e : testArray) {
+            System.out.println(e);
+        }   
+
+        System.out.println("Datos hash");
+        for (int i=0;i<newtestArray.length ;i++ ) {
+            System.out.println(newtestArray[i]);
+        }
+
+        
+        System.out.println("\nBuscando el numero 13\n");
+        //
+        Kernel kernel=new Kernel();
+        int a=A.search((kernel.transformSelection(13,10,this.metodoHash))-1,13);
+        
+    }
     
     public void test_pruebaEncadenamiento(){
         //Elementos de prueba

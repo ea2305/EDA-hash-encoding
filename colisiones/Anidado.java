@@ -1,3 +1,5 @@
+package colisiones;
+
 public class Anidado{
 	Integer[][] arreglo; 
 
