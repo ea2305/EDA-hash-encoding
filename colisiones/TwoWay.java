@@ -36,21 +36,32 @@ public class TwoWay{
 
 		Kernel kernel=new Kernel();
 
-		Integer dato=(kernel.transformSelection(info,n,this.metodoHash))-1;
-		System.out.println(dato);
+		Integer dato=(kernel.transformSelection(info,n,this.metodoHash));
+        
 		if (this.datos[dato] == null) {
 			this.datos[dato]=info;
+            System.out.println("Se inserto en la pos : "+ dato);
 		}
 		else
 		{
-			dx=(kernel.transformSelection(dato+1,n,this.metodoHash));
+			dx=(kernel.transformSelection(dx+1,n,this.metodoHash));
+            int contador=0;
+            int tol = 0;
 			while((datos[dx]!=null)){
-				dx=(kernel.transformSelection(dato+1,n,this.metodoHash));
+                
+				dx=(kernel.transformSelection(dx+1,n,this.metodoHash));
 				if (dx>=this.n){
-					dx=0;
+					dx=1;
 				}
+                tol++;
+                
+                if (tol < (datos.length * 2)){
+                    System.out.println("Error al insertar");
+                    return ;
+                }
 			}
 			this.datos[dx]=info;
+            System.out.println("Dato insertado en la pos :" +dx);
 }
 	}
 
@@ -81,7 +92,7 @@ public class TwoWay{
 		{
 			dx=(kernel.transformSelection(dato+1,n,this.metodoHash));
 			while((dx<=n) && (datos[dx]!=k) && (datos[dx]!=null) && (dx!=dato)){
-				dx=(kernel.transformSelection(dato+1,n,this.metodoHash));
+				dx=(kernel.transformSelection(dx+1,n,this.metodoHash));
 				if (dx>=n) {
 					dx=0;
 				}

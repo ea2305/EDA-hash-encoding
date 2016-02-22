@@ -196,7 +196,7 @@ public class Vista{
         TwoWay A = new TwoWay(10,this.metodoHash);
 
         for(int i=0;i<testArray.length ;i++) {
-            System.out.println(i);
+            
             A.insert(testArray[i]);    
         }
 
