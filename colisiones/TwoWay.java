@@ -15,6 +15,8 @@ public class TwoWay{
 	private Integer datos[];
 	private int n=0;
 	private int metodoHash=0;
+	public int nInsert;
+	public int nSearch;
 
 	/**
 	*constructor
@@ -32,22 +34,27 @@ public class TwoWay{
 	*/
 
 	public void insert(Integer info){
+
+		nInsert=0;
 		int dx=0;
 
 		Kernel kernel=new Kernel();
 
 		Integer dato=(kernel.transformSelection(info,n,this.metodoHash));
-
+		System.out.println("Se genero el primer codigo de insercion :"+dato);
+		System.out.println(dato);
         
 		if (this.datos[dato] == null) {
 			this.datos[dato]=info;
-            System.out.println("Se inserto en la pos : "+ dato);
+			//System.out.println("El elemento " + info + "fue insertado en la pos : " + dato);
+			nInsert++;
 		}
 		else
 		{
-			dx=(kernel.transformSelection(dx+1,n,this.metodoHash));
+			dx=(kernel.transformSelection(dato,n,this.metodoHash)-1);
             int contador=0;
             int tol = 0;
+            nInsert++;
 			while((datos[dx]!=null)){
                 
 				dx=(kernel.transformSelection(dx+1,n,this.metodoHash));
@@ -55,18 +62,13 @@ public class TwoWay{
 				if (dx>=this.n){
 					dx=1;
 				}
-                tol++;
+				nInsert++;
                 
-                if (tol < (datos.length * 2)){
-                    System.out.println("Error al insertar");
-                    return ;
-                }
 			}
 			this.datos[dx]=info;
+			System.out.println("El elemento " + info + "fue insertado en la pos : " + dx);
 
-            System.out.println("Dato insertado en la pos :" +dx);
-
-}
+		}
 	}
 
 
@@ -85,23 +87,30 @@ public class TwoWay{
 
 	public Integer search(Integer dato,Integer k){
 		int dx=0;
+		nSearch=0;
 
 		Kernel kernel=new Kernel();
 
-		if (this.datos[dato] == k) {
+		System.out.println(this.datos[dato]+ "==" +k);
+		if (this.datos[dato].equals(k)) {
 			System.out.println("El elemento esta en la posicion : " + dato);
+			nSearch++;
 			return dato;
 		}
 		else
 		{
 			dx=(kernel.transformSelection(dato,n,this.metodoHash));
-			while((dx<=n) && (datos[dx]!=k) && (datos[dx]!=null) && (dx!=dato)){
+			nSearch++;
+			while((dx<n) && (!datos[dx].equals(k)) && (!datos[dx].equals(null)) && (dx!=dato)){
 				dx=(kernel.transformSelection(dx+1,n,this.metodoHash));
 				if (dx>=n) {
-					dx=0;
+					dx=1;
 				}
+				nSearch++;
+								System.out.println(k+"  "+ datos[dx]);
+
 			}
-			if (datos[dx]==k) {
+			if (datos[dx].equals(k)) {
 				System.out.println("El elemento esta en la posicion : "+dx);
 				return dx;
 			}else{

@@ -140,10 +140,11 @@ public class Vista{
         Kernel kernel=new Kernel();
         Menu myMenu =new Menu("Prueba Reasignacion -- Prueba Lineal",null);
         RPruebaLineal A = new RPruebaLineal(10);
-
+        int nInsert=0;
         for(int i=0;i<testArray.length ;i++) {
             System.out.println(kernel.transformSelection(testArray[i],10,this.metodoHash)-1);
-            A.insert(kernel.transformSelection(testArray[i],10,this.metodoHash)-1,testArray[i]);    
+            A.insert(kernel.transformSelection(testArray[i],10,this.metodoHash)-1,testArray[i]); 
+            nInsert+=A.nInsert;   
         }
 
         Integer newtestArray[] =A.getData();
@@ -158,7 +159,12 @@ public class Vista{
             System.out.println(i +"--["+newtestArray[i]+"]");
         }
 
+        System.out.println("\nEl numero de iteraciones para insertar en el arreglo es : " + nInsert);
+
+        System.out.println("Buscando el numeor 13");
         int a=A.search((kernel.transformSelection(13,10,this.metodoHash))-1,13);
+        int nSearch=A.nSearch;
+        System.out.println("El numero de iteraciones para buscar el numero 13 es de : " + nSearch);
         
 
         
@@ -166,7 +172,7 @@ public class Vista{
     
     public void test_pruebaArreglosAnidados(){
         Kernel kernel = new Kernel();
-
+        Integer testArray [] = {25,43,56,35,54,13,80,104};
         Anidado a = new Anidado(testArray.length+5);
         for(Integer i : testArray){
             System.out.println("posicion a insertar"+kernel.transformSelection(i, testArray.length, this.metodoHash));
@@ -176,11 +182,14 @@ public class Vista{
         a.printArray();
 
         System.out.println("BUSCAR ELEMENTO 25 EN EL ARREGLO DE DATOS");
-        System.out.println("posicion a buscar "+ kernel.transformSelection(25,testArray.length,this.metodoHash));
+        int nSearch=a.nSearch;
+        System.out.println("El numero de iteraciones para buscar el numero 25 es de : " + nSearch);  
+        System.out.println("posicion a buscar   "+ kernel.transformSelection(25,testArray.length,this.metodoHash));
         printSearchResult(a.buscar(25, kernel.transformSelection(25,testArray.length,this.metodoHash)));
-
         System.out.println("BUSCAR ELEMENTO 7 EN EL ARREGLO DE DATOS");
+        nSearch=a.nSearch;
         printSearchResult(a.buscar(7, kernel.transformSelection(7,testArray.length,this.metodoHash)));
+        System.out.println("El numero de iteraciones para buscar el numero 7 es de : " + nSearch);  
 
     }
     
@@ -188,36 +197,38 @@ public class Vista{
 
 
 
-        Integer testArray [] = {25,43,56,35,54,13,80,104};
+        Integer testArray [] = {2554,4323,5635,3512,5784,1323,8034,1042};
         Menu myMenu =new Menu("Prueba Doble Direccion Hash",null);
 
         TwoWay A = new TwoWay(10,this.metodoHash);
+        int nInsert=0;
 
-        for(int i=0;i<testArray.length ;i++) {
-            A.insert(testArray[i]);    
+        for(int i=0;i<testArray.length ;i++){
+            A.insert(testArray[i]); 
+            nInsert+=A.nInsert;   
         }
 
         Integer newtestArray[]=A.getData();
-        System.out.println("Original");
-        for (Integer e : testArray) {
-            System.out.println(e);
-        }   
 
-        System.out.println("Datos hash");
+        System.out.println("Visualizacion del arreglo ordenado");
         for (int i=0;i<newtestArray.length ;i++ ) {
-            System.out.println(newtestArray[i]);
+            System.out.println("["+i+"] -- " + newtestArray[i]);
         }
 
+        System.out.println("\nEl numero de iteraciones para insertar datos fue de : " + nInsert);
         
-        System.out.println("\nBuscando el numero 13\n");
-        //
+        System.out.println("\nBuscando el numero 4323\n");
         Kernel kernel=new Kernel();
-        int a=A.search((kernel.transformSelection(13,10,this.metodoHash))-1,13);
+        int a=A.search((kernel.transformSelection(4323,10,this.metodoHash)),4323);
+        int nSearch=A.nSearch;
+        System.out.println("El numero de iteraciones para buscar el numero 4323 es de : " + nSearch);
 
-        System.out.println("\nBuscando el numero 40\n");
+        System.out.println("\nBuscando el numero 1042\n");
 
-        int b=A.search((kernel.transformSelection(40,10,this.metodoHash))-1,40);
-        
+        int b=A.search((kernel.transformSelection(1042,10,this.metodoHash)),1042);
+        nSearch=A.nSearch;
+        System.out.println("El numero de iteraciones para buscar el numero 1042 es de : " + nSearch);
+
     }
     
     public void test_pruebaEncadenamiento(){
@@ -230,7 +241,7 @@ public class Vista{
         Encadenamiento A = new Encadenamiento();
         
         A.startList(testArray.length);//Generamos Tamano de lista
-        
+        int nSearch=0;
         for(Integer e : testArray){
             A.insert(e,kernel.transformSelection(e,testArray.length,this.metodoHash));
         }   
@@ -243,8 +254,13 @@ public class Vista{
         
         System.out.println("Busqueda de dato  [104]");
         printSearchResult(A.search(104,kernel.transformSelection(104,testArray.length,this.metodoHash)));//test search
+        nSearch=A.nSearch;
+        System.out.println("El numero de iteraciones para encontrar el numero 104 es : " + nSearch);
         System.out.println("Busqueda de dato  [7]");
         printSearchResult(A.search(7,kernel.transformSelection(7,testArray.length,this.metodoHash)));//test search
+        nSearch=A.nSearch;
+        System.out.println("El numero de iteraciones para encontrar el numero 104 es : " + nSearch);
+
 
     }
     
@@ -264,11 +280,15 @@ public class Vista{
         }   
         
         A.printArray();
-        
+        int nSearch=0;
         System.out.println("Busqueda de dato  [104]");
         printSearchResult(A.search(104,kernel.transformSelection(104,testArray.length,this.metodoHash)));//test search
+        nSearch=A.nSearch;
+        System.out.println("El numero de iteraciones para encontrar el numero 104 es : "+ nSearch);
         System.out.println("Busqueda de dato  [7]");
         printSearchResult(A.search(7,kernel.transformSelection(7,testArray.length,this.metodoHash)));//test search
+        nSearch=A.nSearch;
+        System.out.println("El numero de iteraciones para buscar el numero 7 es : " + nSearch);
     }
     
     public void printSearchResult(int aux){

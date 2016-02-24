@@ -3,6 +3,7 @@ package colisiones;
 public class CuadraticMethod{
     
     Integer myArray[];
+    public int nSearch;
     
     public CuadraticMethod(){
         myArray = new Integer[2];
@@ -59,13 +60,16 @@ public class CuadraticMethod{
     }
     
     public Integer search(Integer data,int posicion){
+        nSearch=0;
         
         int count = 0;
-        if(posicion < 0 || posicion >= this.myArray.length)
+        if(posicion < 0 || posicion >= this.myArray.length){
+            nSearch++;
             return -1;
+        }
         
         if(myArray[posicion] == data){
-            
+            nSearch++;
             return posicion;
             
         }else{  
@@ -87,8 +91,10 @@ public class CuadraticMethod{
                     posicion = 0;
                     newPosition = posicion + (int)Math.pow(i,2);
                 }
+                nSearch++;
             }
         }
+        nSearch++;
         return -1;
     }
 }

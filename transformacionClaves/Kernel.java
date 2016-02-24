@@ -15,7 +15,9 @@ public class Kernel{
   */
   public Integer modularHash(Integer element,int N){
     ModularHash modHash = new ModularHash(N);
-    return  modHash.transformElement(element);
+    Integer hash = modHash.transformElement(element);
+    while(hash > N) hash -= N;
+    return hash;
   }
   /**
   *@param Integer: dato, int: numero de elementos
@@ -23,7 +25,9 @@ public class Kernel{
   */
   public Integer cuadradoHash(Integer dato, int N){
     CuadradoHash ch = new CuadradoHash(N);
-    return ch.transformElement(dato);
+    Integer hash = ch.transformElement(dato);
+    while(hash > N) hash -= N;
+    return hash;
   }
   /**
   *@param Integer: dato, int: numero de elementos
@@ -31,7 +35,9 @@ public class Kernel{
   */
   public Integer plegamientoHash(Integer dato, int N){
     PlegamientoHash ph = new PlegamientoHash(N);
-    return ph.transformElement(dato);
+    Integer hash = ph.transformElement(dato);
+    while(hash > N) hash -= N;
+    return hash;
   }
   /**
   *@param Integer: dato, int: numero de elementos
@@ -39,7 +45,9 @@ public class Kernel{
   */
   public Integer truncamientoHash(Integer dato, int N){
     TruncamientoHash th = new TruncamientoHash(N);
-    return th.transformElement(dato);
+    Integer hash = th.transformElement(dato);
+    while(hash > N) hash -= N;
+    return hash;
   }
   /**
   *@param Integer: dato, int: numero de elementos

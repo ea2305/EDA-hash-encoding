@@ -2,6 +2,8 @@ package colisiones;
 
 public class Anidado{
 	Integer[][] arreglo; 
+	public int nInsert;
+	public int nSearch;
 
 	public Anidado(int tamano){
 		arreglo = new Integer[tamano][tamano];
@@ -13,6 +15,7 @@ public class Anidado{
 	}
 
 	public void insertar(Integer object, int pos){
+
 		int i = 0;
 	//	int h = (object % 10) +1;
 	//	System.out.println(arreglo.length);
@@ -29,15 +32,21 @@ public class Anidado{
 	//	printArray();
 	}
 
-	public int buscar(Integer object, int pos){     
-        if(pos > arreglo.length)
+	public int buscar(Integer object, int pos){  
+	nSearch=0;   
+        if(pos > arreglo.length){
+
+        	nSearch++;
             return -1;
-		for(int i=0; i< arreglo.length; i++){
+        }
+		for(int i=0; i < arreglo.length; i++){
+			nSearch++;
 			if(arreglo[pos][i] == object){
 				//System.out.println("Objeto encontrado");
 				return pos;
 			}
 		}
+		nSearch++;
 		return -pos;
 	//	System.out.println("Objeto no encontrado");
 	}

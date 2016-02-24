@@ -5,6 +5,8 @@ public class Encadenamiento{
     
     ListaSimple<ListaSimple<Integer>> List;
     boolean state;
+    public int nSearch;
+
     
     //Constructor por defecto
     public Encadenamiento(){
@@ -39,7 +41,13 @@ public class Encadenamiento{
     public int search(Integer data, int posicion){
         
         if(posicion > List.size())
+        {
+
+            nSearch++;
             return -1;
+
+
+        }
         
         ListaSimple<Integer> current = new ListaSimple<>();
         
@@ -47,13 +55,14 @@ public class Encadenamiento{
         current = List.get(posicion).getData();
         
         for(int i = 1; i <= current.size() ; i++){
+            nSearch++;
             
             //Inspeccionamso cada nodo prguntando por el dato
             if(current.get(i).getData() == data){
                 return i;
             }
         }
-        
+        nSearch++;
         return -1;
     }
     
